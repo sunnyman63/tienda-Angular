@@ -1,0 +1,7 @@
+<div id="carouselhome" class="carousel slide mt-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let cartel of carteles; let primero = first" [ngClass]="{active:primero}">
+            <img src="{{cartel.getImagen()}}" class="d-block w-100" alt="{{cartel.getNombre()}}">
+        </div>
+    </div>
+</div>
