@@ -1,0 +1,66 @@
+.imgGrande {
+    width: 60%;
+}
+
+.imgPeque {
+    width: 80px;
+}
+
+.talla {
+    border: 1px #000 solid;
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.noDisponible {
+    border-color: #ccc;
+    color: #ccc;
+    background-color: #eee;
+    text-decoration: line-through;
+    cursor: default;
+}
+
+.link-dark {
+    cursor: pointer;
+}
+
+.boton {
+    border: 1px #000 solid;
+    padding: 10px 20px;
+    margin-right: 5px;
+    &.boton-blanco {
+        background-color: #fff;
+        i {
+            margin-left: 10px;
+        }
+    }
+    &.boton-negro {
+        background-color: #000;
+        color: #fff;
+        i {
+            margin-right: 10px;
+        }
+    }
+    &:hover {
+        box-shadow: 2px 2px 5px 0px #000;
+    }
+}
+
+.brand {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: #eee;
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    cursor: pointer;
+}

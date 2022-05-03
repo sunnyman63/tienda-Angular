@@ -1,23 +1,23 @@
 export class producto {
 
-    private id: number;
-    private tipo: string;
-    private nombre: string;
-    private color: string;
-    private precio: number;
-    private disponibilidad: boolean;
-    private tallas: string[];
-    private imagen: string;
+    public id: number;
+    public tipo: string;
+    public nombre: string;
+    public color: string;
+    public precio: number;
+    public disponibilidad: boolean;
+    public tallas: string[];
+    public imagen: string;
 
     constructor(
-        id: number,
-        tipo: string, 
-        nombre: string, 
-        color: string, 
-        precio: number, 
-        disponibilidad: boolean, 
-        tallas: string[], 
-        imagen: string
+        id: number = 0,
+        tipo: string = "", 
+        nombre: string = "", 
+        color: string = "", 
+        precio: number = 0, 
+        disponibilidad: boolean = false, 
+        tallas: string[] = [], 
+        imagen: string = ""
     ) {
         this.id = id;
         this.tipo = tipo;

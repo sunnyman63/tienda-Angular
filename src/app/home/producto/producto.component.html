@@ -1,1 +1,57 @@
-<p>producto works!</p>
+<div class="p-5">
+    <a [routerLink]="['']">Tienda</a> &gt;
+    <a [routerLink]="['/categoria']" [queryParams]="{id: categoriaId}">{{categoriaNombre}}</a> &gt;
+    <span>{{producto.getNombre()}}</span>
+</div>
+<div class="row">
+    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+        <img class="img-fluid" src="{{producto.getImagen()}}" alt="{{producto.getNombre()}} {{producto.getColor()}}">
+    </div>
+    <div class="col-12 col-md-6">
+        <p class="small">{{producto.getTipo()}}</p>
+        <h1>{{producto.getNombre()}}</h1>
+        <p>Color: <span class="fw-bold">{{producto.getColor()}}</span></p>
+        <img class="imgPeque" src="{{producto.getImagen()}}" alt="{{producto.getNombre()}} {{producto.getColor()}}">
+        <p class="mt-5">Size: <span class="fw-bold">Choose size</span></p>
+        <div class="d-flex flex-wrap">
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('3XS') }">3XS</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('2XS') }">2XS</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('XS') }">XS</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('SM') }">SM</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('MD') }">MD</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('LG') }">LG</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('XL') }">XL</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('2XL') }">2XL</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('3XL') }">3XL</div>
+            <div class="talla" [ngClass]="{'noDisponible': tallaDisponible('4XL') }">4XL</div>
+        </div>
+        <div class="p-3">
+            <i class="bi bi-arrow-left-right"></i>
+            <a class="link-dark fw-bold ms-3">Size chart</a>
+        </div>
+        <div class=" my-4">
+            <button class="boton boton-negro">
+                <i class="bi bi-envelope"></i>
+                Wait List
+            </button>
+            <button class="boton boton-blanco">
+                Wishlist
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+
+        <p>Is your size/color sold out? <a class="link-dark">Join the Wait List!</a></p>
+        <div class="d-flex align-items-center">
+            <span class="me-3">Share:</span>
+            <a class="brand">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a class="brand">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a class="brand">
+                <i class="bi bi-pinterest"></i>
+            </a>
+        </div>
+    </div>
+</div>

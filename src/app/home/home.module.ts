@@ -8,6 +8,7 @@ import { PanelComponent } from './panel/panel.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { CategoriaSeleccionadaComponent } from './categoria-seleccionada/categoria-seleccionada.component';
 import { ProductoComponent } from './producto/producto.component';
+import { ProductosCategoriaComponent } from './productos-categoria/productos-categoria.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProductoComponent } from './producto/producto.component';
     PanelComponent,
     CategoriasComponent,
     CategoriaSeleccionadaComponent,
-    ProductoComponent
+    ProductoComponent,
+    ProductosCategoriaComponent
   ],
   imports: [
     CommonModule,

@@ -36,7 +36,6 @@ export class CategoriaSeleccionadaComponent implements OnInit {
   }
 
   obtenerCategoria(): void {
-    const endPoint: string = "http://localhost:3003";
     this.productoService.obtenerCategoria(this.categoriaId).subscribe(
       (data) => {
           this.categoriaNombre = data[0].nombre;
@@ -57,9 +56,4 @@ export class CategoriaSeleccionadaComponent implements OnInit {
       }
     )
   }
-
-  navegarAProducto(idProducto: number): void {
-    this.router.navigate(['categoria',this.categoriaId,'producto'],{ queryParams: {p: idProducto} });
-  }
-
 }

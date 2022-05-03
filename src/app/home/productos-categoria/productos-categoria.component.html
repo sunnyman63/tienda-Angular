@@ -1,0 +1,6 @@
+<div class="card" (click)="navegarAProducto(producto.getId())" *ngIf="producto">
+    <img src="{{producto.getImagen()}}" class="card-img-top" alt="{{producto.getNombre()}}{{producto.getColor()}}">
+    <div class="card-body text-center">
+        <h5 class="card-title">{{producto.getNombre()}}</h5>
+        <p class="card-text">{{producto.getPrecio() | currency:'USD':'symbol':'1.2-2'}}</p>
+</div>
