@@ -17,7 +17,6 @@ export class CategoriaSeleccionadaComponent implements OnInit {
   categoriaNombre: string = "";
 
   constructor(
-    private categoriaService: CartelService,
     private productoService: GenerarProductosService,
     private router: Router,
     private route: ActivatedRoute
@@ -38,46 +37,29 @@ export class CategoriaSeleccionadaComponent implements OnInit {
 
   obtenerCategoria(): void {
     const endPoint: string = "http://localhost:3003";
-    this.categoriaService.obtenerCarteles(endPoint).subscribe(
+    this.productoService.obtenerCategoria(this.categoriaId).subscribe(
       (data) => {
-        data.forEach((cartel) => {
-          if(cartel.id == parseInt(this.categoriaId)) {
-            this.categoriaNombre = cartel.nombre;
-            this.obtenerProductos(cartel.id);
-          }
-        })
+          this.categoriaNombre = data[0].nombre;
+          const productosAux: any[] = data[0].productos;
+          productosAux.forEach((product)=>{
+            const prod: producto = 
+              new producto(
+                          product.id,
+                          product.tipo,
+                          product.nombre,
+                          product.color,
+                          product.precio,
+                          product.disponibilidad,
+                          product.tallas,
+                          product.imagen);
+            this.productos.push(prod);
+          })
       }
     )
-  } 
-
-  obtenerProductos(idCategoria: number): void {
-    const endPoint: string = "http://localhost:3003";
-    this.productoService.obtenerCategorias(endPoint).subscribe(
-      (data)=> {
-        data.forEach((cat)=>{
-          if(cat.id == idCategoria) {
-            const products: any[] = cat.productos;
-            products.forEach((product)=>{
-              const productoIncluir: producto = new producto(
-                                                              product.id, 
-                                                              product.tipo, 
-                                                              product.nombre,
-                                                              product.color,
-                                                              product.precio,
-                                                              product.disponibilidad,
-                                                              product.tallas,
-                                                              product.imagen);
-              this.productos.push(productoIncluir);
-            })
-          }
-        })
-        console.log(this.productos);
-      }
-    );
   }
 
   navegarAProducto(idProducto: number): void {
-    this.router.navigate(['categoria/producto'],{ queryParams: {p: idProducto} });
+    this.router.navigate(['categoria',this.categoriaId,'producto'],{ queryParams: {p: idProducto} });
   }
 
 }

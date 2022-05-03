@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { categoria } from '../entity/categoria.model';
 import { producto } from '../entity/producto.model';
 
 @Injectable({
@@ -13,9 +12,14 @@ export class GenerarProductosService {
     private http: HttpClient
   ) { }
 
-  public obtenerCategorias(endPoint: string): Observable<any[]> {
-    const urlEndPoint: string = endPoint;
-    return this.http.get<[]>(urlEndPoint);
+  public obtenerPorductosDeCategoria(idCategoria: string): Observable<producto[]> {
+    const urlEndPoint: string = "http://localhost:3003/categoria/"+idCategoria+"/productos";
+    return this.http.get<producto[]>(urlEndPoint);
+  }
+
+  public obtenerCategoria(idCategoria: string): Observable<any[]> {
+    const urlEndPoint: string = "http://localhost:3003/categoria/"+idCategoria;
+    return this.http.get<any[]>(urlEndPoint);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { categoria } from 'src/app/entity/categoria.model';
 import { CartelService } from 'src/app/service/cartel.service';
 import { Router } from '@angular/router';
+import { cartel } from 'src/app/entity/cartel.interface';
 
 @Component({
   selector: 'app-categorias',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CategoriasComponent implements OnInit {
 
-  carteles: categoria[] = [];
+  carteles: cartel[] = [];
 
   constructor(
     private cartelService: CartelService,
@@ -26,7 +27,7 @@ export class CategoriasComponent implements OnInit {
     this.cartelService.obtenerCarteles(endPoint).subscribe(
       (data) => {
         data.forEach((cartel) => {
-          const cartelIncluir: categoria = new categoria(cartel.id, cartel.nombre, cartel.imagen);
+          const cartelIncluir: cartel = new categoria(cartel.id, cartel.nombre, cartel.imagen);
           this.carteles.push(cartelIncluir);
         })
       }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { banner } from 'src/app/entity/banner.model';
+import { cartel } from 'src/app/entity/cartel.interface';
 import { CartelService } from 'src/app/service/cartel.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CartelService } from 'src/app/service/cartel.service';
 })
 export class PanelComponent implements OnInit {
 
-  carteles: banner[] = [];
+  carteles: cartel[] = [];
 
   constructor(
     private cartelService: CartelService
@@ -24,7 +25,7 @@ export class PanelComponent implements OnInit {
     this.cartelService.obtenerCarteles(endPoint).subscribe(
       (data) => {
         data.forEach((cartel) => {
-          const cartelIncluir: banner = new banner(cartel.id, cartel.nombre, cartel.imagen);
+          const cartelIncluir: cartel = new banner(cartel.id, cartel.nombre, cartel.imagen);
           this.carteles.push(cartelIncluir);
         })
       }

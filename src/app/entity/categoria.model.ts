@@ -1,19 +1,23 @@
 import { cartel } from "./cartel.interface";
+import { producto } from "./producto.model";
 
 export class categoria implements cartel{
     
     public id: number;
     public nombre: string;
     public imagen: string;
+    public productos?: producto[];
 
     constructor(
         id: number,
         nombre: string,
-        imagen: string
+        imagen: string,
+        productos?: producto[]
     ) {
         this.id = id;
         this.nombre = nombre;
         this.imagen = imagen;
+        this.productos = productos ?? [];
     }
 
     public getId(): number {
@@ -40,4 +44,11 @@ export class categoria implements cartel{
         this.imagen = imagen;
     }
 
+    public getProductos(): producto[] {
+        return this.productos ?? [];
+    }
+
+    public setProductos(productos: producto[]): void {
+        this.productos = productos;
+    }
 }
